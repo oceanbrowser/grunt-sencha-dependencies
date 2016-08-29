@@ -180,6 +180,21 @@ makeDefaultTestsForExample("touchtweets-2.1.1",
     }
 );
 
+tests["Use a different port"] = function (test) {
+        test.expect(1);
+        var depChecker = new PhantomJsHeadlessAnalyzer(
+            "app/app.js",
+            "../libs/ext-4.1.1a",
+            "test/integration/pandora-ext-4.1.1a/",
+            "index.html",
+            true,
+            false,
+            3003
+        );
+
+        depChecker.getDependencies(makeFileCountAssertion(test, 230));
+    };
+
 exports.sencha_dependencies = tests;
 
 /* {

@@ -91,6 +91,12 @@ Default value: Directory in which grunt is run
 
 Set this to be relative to the directory from which you run grunt.
 
+#### options.port
+Type: `Integer`
+Default value: 3000
+
+Set this to run the static file web server on a different port.
+
 #### options.pageToProcess
 Type: `String`
 Default value: `undefined`
