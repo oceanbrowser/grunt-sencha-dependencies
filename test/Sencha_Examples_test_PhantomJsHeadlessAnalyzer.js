@@ -103,7 +103,7 @@ function makeDefaultTestsForExample(prefix,
 
 var tests = {
     setUp: function (done) {
-        PhantomJsHeadlessAnalyzer = require("../tasks/lib/PhantomJsHeadlessAnalyzer.js");
+        PhantomJsHeadlessAnalyzer = require("../lib/PhantomJsHeadlessAnalyzer.js");
         done();
     }
 };

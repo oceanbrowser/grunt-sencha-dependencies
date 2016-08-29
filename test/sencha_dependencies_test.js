@@ -23,7 +23,7 @@ var splitArrayIntoThree;
 
 exports.sencha_dependencies = {
     setUp: function (done) {
-        splitArrayIntoThree = require("../tasks/lib/splitArrayIntoThree.js");
+        splitArrayIntoThree = require("../lib/splitArrayIntoThree.js");
         // setup here if necessary
         done();
     },

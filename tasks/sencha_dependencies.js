@@ -10,11 +10,10 @@
 
 var fs                              = require("fs"),
     path                            = require("path"),
-    splitArrayIntoThree             = require(__dirname + path.sep + "lib" + path.sep + "splitArrayIntoThree.js"),
-    PhantomJsHeadlessAnalyzer       = require(__dirname + path.sep + "lib" + path.sep + "PhantomJsHeadlessAnalyzer.js");
+    splitArrayIntoThree             = require("../lib/splitArrayIntoThree.js"),
+    PhantomJsHeadlessAnalyzer       = require("../lib/PhantomJsHeadlessAnalyzer.js");
 
 module.exports = function (grunt) {
-
     function doneFn(filesLoadedSoFar, target, senchaDir) {
         splitArrayIntoThree(filesLoadedSoFar, senchaDir, grunt, "sencha_dependencies_" + target);
         grunt.config.set("sencha_dependencies_" + target, filesLoadedSoFar);
@@ -43,7 +42,7 @@ module.exports = function (grunt) {
         var options = instance.options({
             pageRoot: "",
             includeAllScriptTags: true,
-            failOnError:false
+            failOnError: false
         });
         if (options.appFile && !options.appJs) {
             options.appJs = options.appFile;
@@ -60,7 +59,7 @@ module.exports = function (grunt) {
         } else {
             grunt.log.writeln("Processing Sencha app file " + (options.pageToProcess ?  options.pageToProcess : options.appJs) + "...");
             dependencyChecker = new PhantomJsHeadlessAnalyzer(
-                options.appJs, options.senchaDir, options.pageRoot, options.pageToProcess, options.includeAllScriptTags,options.failOnError
+                options.appJs, options.senchaDir, options.pageRoot, options.pageToProcess, options.includeAllScriptTags, options.failOnError
             );
         }
         dependencyChecker.setExclusions(options.exclude);
