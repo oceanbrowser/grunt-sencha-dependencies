@@ -8,8 +8,8 @@
 
 "use strict";
 
-var testinfra = require("grunt-sencha-dependencies-testinfra").path,
-    ncp = require("ncp").ncp;
+// 2022 var testinfra = require("grunt-sencha-dependencies-testinfra").path,
+ var ncp = require("ncp").ncp;
 
 module.exports = function (grunt) {
 
@@ -36,10 +36,11 @@ module.exports = function (grunt) {
             tests: ["tmp", "./test/integration/libs"]
         },
 
-        // Unit tests.
-        nodeunit: {
-            tests: ["test/*_test.js", "test/Sencha_Examples_test_*.js"]
-        }
+       // 2022 
+      // Unit tests.
+      //  nodeunit: {
+        //    tests: ["test/*_test.js", "test/Sencha_Examples_test_*.js"]
+       // }
 
     });
 
@@ -51,7 +52,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-contrib-clean");
     grunt.loadNpmTasks("grunt-contrib-nodeunit");
 
-    grunt.registerTask("copy_testinfra", function () {
+  /* 2022 Disable tests
+  grunt.registerTask("copy_testinfra", function () {
         // move the directory ./node_modules/grunt-sencha-dependencies-testinfra/libs
         //                 to ./test/integration
         var done = this.async();
@@ -61,6 +63,7 @@ module.exports = function (grunt) {
             }
             done();
         });
+ */       
 
     });
 
